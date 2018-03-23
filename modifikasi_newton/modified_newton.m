@@ -1,0 +1,1 @@
+function [res, iter] = modified_newton(func, dfunc, ddfunc, x0, tol)  res = x0;  iter = 0;  max_loop = 100;  while abs(func(res)) > tol    if iter == 10      break    endif    iter = iter + 1;    fk = feval(func, res); dfk = feval(dfunc, res); ddfk = feval(ddfunc, res);    res = res - ((fk*dfk)/ (dfk^2 - (fk*ddfk)));  endwhileendfunction
