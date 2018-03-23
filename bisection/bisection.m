@@ -4,7 +4,7 @@ function c = bisection(fun, a, b, tol)
    n =  1;
    while n < NMAX
     c = (a + b)/2;
-     if fun(c) == 0 || (b-a)/2 < tol
+     if abs(fun(c)) < tol
       return
      endif
    
@@ -13,6 +13,7 @@ function c = bisection(fun, a, b, tol)
      else
       b = c;
      endif
+     n += 1;
     endwhile
   error("Solution not found");
 endfunction
