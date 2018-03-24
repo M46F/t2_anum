@@ -1,1 +1,1 @@
-function [res, iter] = mod_newton_solver(f, tol)  pkg load symbolic;  syms x;  # cari turunan dari f  fd = diff(f(x)); fdd = diff(fd); fd = function_handle(fd); fdd = function_handle(fdd);  [ res, iter ] = modified_newton(f, fd, fdd, 1, tol);endfunction
+function [res, iter] = mod_newton_solver(f, tol, x0)  pkg load symbolic;  syms x;  # cari turunan dari f  fd = diff(f(x)); fdd = diff(fd); fd = function_handle(fd); fdd = function_handle(fdd);  [ res, iter ] = modified_newton(f, fd, fdd, x0, tol);endfunction
