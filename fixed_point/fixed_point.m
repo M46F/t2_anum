@@ -1,13 +1,18 @@
-function [X, n] = fixed_point(gx, tol, x)
+function [x, n, is_converge, err] = fixed_point(gx, tol, x)
   n = 0;
-  X = [];
-  err = 9999;
+  err = 9999; err_old = 9999;
   x_old = x;
+  is_converge = 0;
+  max_iter = 10000;
   while err > tol
-    X = [X x];
+    err_old = err;
     x = gx(x_old);
     err = abs(x-x_old);
     x_old = x;
     n += 1;
+    if n >= max_iter 
+      break 
+    end
   end
+  is_converge = 1;
 end
