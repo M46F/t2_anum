@@ -2,7 +2,7 @@ function [x, n, is_converge, err] = fixed_point(gx, tol, x)
   n = 0;
   err = 9999; err_old = 9999;
   x_old = x;
-  is_converge = 0;
+  is_converge = 1;
   max_iter = 10000;
   while err > tol
     err_old = err;
@@ -11,8 +11,8 @@ function [x, n, is_converge, err] = fixed_point(gx, tol, x)
     x_old = x;
     n += 1;
     if n >= max_iter 
-      break 
+       is_converge = 0;
+       break 
     end
   end
-  is_converge = 1;
 end

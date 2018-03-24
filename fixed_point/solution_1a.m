@@ -278,3 +278,4 @@ for xt=x1e
 end
 
 save hasil.mat Result;
+csvwrite("hasil.csv",Result);
