@@ -1,4 +1,5 @@
-function [res, iter] = newton_raphson(func, dfunc, x0, tol, iter)
+function [res, iter] = newton_raphson(func, x0, tol, iter)
+  dfunc = dif(func);
   res = x0;
   iter = 0;
   while abs(func(res)) > tol
